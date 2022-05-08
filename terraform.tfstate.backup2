@@ -1,7 +1,7 @@
 {
   "version": 4,
   "terraform_version": "0.14.10",
-  "serial": 49,
+  "serial": 52,
   "lineage": "496a17be-4c54-06c1-093f-5ccac2cfa3b9",
   "outputs": {},
   "resources": [
@@ -36,8 +36,8 @@
             "id": "github-token",
             "name": "github-token",
             "type": "String",
-            "value": "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",
-            "version": 5,
+            "value": "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",
+            "version": 7,
             "with_decryption": true
           },
           "sensitive_attributes": []
@@ -878,8 +878,8 @@
             "id": "github-token",
             "name": "github-token",
             "type": "String",
-            "value": "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",
-            "version": 5,
+            "value": "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",
+            "version": 7,
             "with_decryption": true
           },
           "sensitive_attributes": []
@@ -1241,9 +1241,10 @@
                     "category": "Source",
                     "configuration": {
                       "Branch": "main",
-                      "ConnectionArn": "arn:aws:codestar-connections:us-east-2:901968315793:connection/f7b51a57-3424-4436-aedf-1b6567c9e1bc",
-                      "FullRepositoryId": "Ramynassef/aws-ci-cd-pipelines",
-                      "PollForSourceChanges": "false"
+                      "OAuthToken": "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",
+                      "Owner": "ramyosama-demo",
+                      "PollForSourceChanges": "false",
+                      "Repo": "aws-ci-cd-pipelines"
                     },
                     "input_artifacts": [],
                     "name": "Source",
@@ -1349,10 +1350,10 @@
             "aws_s3_bucket.remote_state",
             "module.master_pipeline.aws_codebuild_project.prod_apply",
             "module.master_pipeline.aws_codebuild_project.prod_plan",
-            "module.master_pipeline.aws_codestarconnections_connection.example",
             "module.master_pipeline.aws_iam_role.codepipeline",
             "module.master_pipeline.data.aws_ssm_parameter.artifact_bucket",
-            "module.master_pipeline.data.aws_ssm_parameter.cmk_arn"
+            "module.master_pipeline.data.aws_ssm_parameter.cmk_arn",
+            "module.master_pipeline.data.aws_ssm_parameter.github_token"
           ]
         }
       ]
@@ -1360,32 +1361,10 @@
     {
       "module": "module.master_pipeline",
       "mode": "managed",
-      "type": "aws_codestarconnections_connection",
-      "name": "example",
+      "type": "aws_codepipeline_webhook",
+      "name": "codepipeline_webhook",
       "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
-      "instances": [
-        {
-          "schema_version": 0,
-          "attributes": {
-            "arn": "arn:aws:codestar-connections:us-east-2:901968315793:connection/f7b51a57-3424-4436-aedf-1b6567c9e1bc",
-            "connection_status": "PENDING",
-            "host_arn": "",
-            "id": "arn:aws:codestar-connections:us-east-2:901968315793:connection/f7b51a57-3424-4436-aedf-1b6567c9e1bc",
-            "name": "example-connection",
-            "provider_type": "GitHub",
-            "tags": null,
-            "tags_all": {}
-          },
-          "sensitive_attributes": [],
-          "private": "bnVsbA==",
-          "dependencies": [
-            "aws_dynamodb_table.locks_table",
-            "aws_kms_key.this",
-            "aws_s3_bucket.artifacts",
-            "aws_s3_bucket.remote_state"
-          ]
-        }
-      ]
+      "instances": []
     },
     {
       "module": "module.master_pipeline",
@@ -1681,12 +1660,12 @@
             "module.master_pipeline.aws_codebuild_project.prod_apply",
             "module.master_pipeline.aws_codebuild_project.prod_plan",
             "module.master_pipeline.aws_codepipeline.prod",
-            "module.master_pipeline.aws_codestarconnections_connection.example",
             "module.master_pipeline.aws_iam_role.codebuild",
             "module.master_pipeline.aws_iam_role.codepipeline",
             "module.master_pipeline.aws_iam_role.cw_events_role",
             "module.master_pipeline.data.aws_ssm_parameter.artifact_bucket",
             "module.master_pipeline.data.aws_ssm_parameter.cmk_arn",
+            "module.master_pipeline.data.aws_ssm_parameter.github_token",
             "random_string.random_suffix"
           ]
         }
@@ -1699,6 +1678,41 @@
       "name": "github_webhook",
       "provider": "provider[\"registry.terraform.io/hashicorp/github\"]",
       "instances": []
+    },
+    {
+      "module": "module.master_pipeline",
+      "mode": "managed",
+      "type": "random_string",
+      "name": "github_secret",
+      "provider": "provider[\"registry.terraform.io/hashicorp/random\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "id": "sohJoG0DwjKo7HYd4si8fVmpGK3l3SGxjnoGoNqu2lNFlrZiqYAi28nM1CoHKKrbHTrAUmgVzWgJZfzspBNtdmvgmprBovCiWCe",
+            "keepers": null,
+            "length": 99,
+            "lower": true,
+            "min_lower": 0,
+            "min_numeric": 0,
+            "min_special": 0,
+            "min_upper": 0,
+            "number": true,
+            "override_special": null,
+            "result": "sohJoG0DwjKo7HYd4si8fVmpGK3l3SGxjnoGoNqu2lNFlrZiqYAi28nM1CoHKKrbHTrAUmgVzWgJZfzspBNtdmvgmprBovCiWCe",
+            "special": false,
+            "upper": true
+          },
+          "sensitive_attributes": [],
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ==",
+          "dependencies": [
+            "aws_dynamodb_table.locks_table",
+            "aws_kms_key.this",
+            "aws_s3_bucket.artifacts",
+            "aws_s3_bucket.remote_state"
+          ]
+        }
+      ]
     }
   ]
 }

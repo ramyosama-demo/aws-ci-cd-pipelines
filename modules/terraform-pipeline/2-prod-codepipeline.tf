@@ -26,7 +26,7 @@ resource "aws_codepipeline" "prod" {
       category         = "Source"
       name             = "Source"
       owner            = "ThirdParty"
-      provider         = "CodeStarSourceConnection"
+      provider         = "GitHub"
       version          = "1"
       output_artifacts = ["CodeWorkspace"]
 
