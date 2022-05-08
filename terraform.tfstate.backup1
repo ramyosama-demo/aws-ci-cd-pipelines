@@ -1,7 +1,7 @@
 {
   "version": 4,
   "terraform_version": "0.14.10",
-  "serial": 45,
+  "serial": 57,
   "lineage": "496a17be-4c54-06c1-093f-5ccac2cfa3b9",
   "outputs": {},
   "resources": [
@@ -36,8 +36,8 @@
             "id": "github-token",
             "name": "github-token",
             "type": "String",
-            "value": "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",
-            "version": 5,
+            "value": "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",
+            "version": 1,
             "with_decryption": true
           },
           "sensitive_attributes": []
@@ -878,8 +878,8 @@
             "id": "github-token",
             "name": "github-token",
             "type": "String",
-            "value": "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",
-            "version": 5,
+            "value": "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",
+            "version": 1,
             "with_decryption": true
           },
           "sensitive_attributes": []
@@ -1241,8 +1241,8 @@
                     "category": "Source",
                     "configuration": {
                       "Branch": "main",
-                      "OAuthToken": "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",
-                      "Owner": "Ramynassef",
+                      "OAuthToken": "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",
+                      "Owner": "ramyosama-demo",
                       "PollForSourceChanges": "false",
                       "Repo": "aws-ci-cd-pipelines"
                     },
@@ -1373,7 +1373,7 @@
             "authentication_configuration": [
               {
                 "allowed_ip_range": "",
-                "secret_token": "7BloRkjvyCWgRPr6C9Sn1jtMi7uelMi4x5QeUvLQDcZrrHoM12NVtuuwJa3nHUnFpYMXHrtxCi8qZ2TVI2mjYgpbypRV4gqyjnv"
+                "secret_token": "sohJoG0DwjKo7HYd4si8fVmpGK3l3SGxjnoGoNqu2lNFlrZiqYAi28nM1CoHKKrbHTrAUmgVzWgJZfzspBNtdmvgmprBovCiWCe"
               }
             ],
             "filter": [
@@ -1388,7 +1388,7 @@
             "tags_all": {},
             "target_action": "Source",
             "target_pipeline": "aws-ci-cd-pipelines-prod-tf",
-            "url": "https://us-east-2.webhooks.aws/trigger?t=eyJlbmNyeXB0ZWREYXRhIjoiZ21OUjNLTGpFenE3aE50Ky80V2hRSVBWaVVmK2kxVy9CSGZWVGpoTzdsd1BTeitVVmw3cFN2S01BRHlqcU1mUkI4YTc3YnYzTDJLUFJYcTNUcXArOElHV25vSW92SHZvbEJ6V0xUendkdGp3bFJaR0ltMXdkQ3ljZTg4UTRJdHNmTko1Q29lTlp0ZDdGWXBnVHNQY0dIU0R4M0Q4N1VwMU5Ccmh1b1Nzek1vMDdBPT0iLCJpdlBhcmFtZXRlclNwZWMiOiIvalhVRnU4aGRnWlhJaVorIiwibWF0ZXJpYWxTZXRTZXJpYWwiOjF9\u0026v=1"
+            "url": "https://us-east-2.webhooks.aws/trigger?t=eyJlbmNyeXB0ZWREYXRhIjoiMEdwSmFIY1VtM0FEUFRDTklBbU9IeU53Q29obVBjbE9zUVhqWkhBMXM2ZW9USkhMVHRxaWtreVNpRFA2TzVhT2dQMTFMNUF3VUNpVjFiNlNSLzcvRFFmZjB2YW9RaTFmTzVmaHpxVEMrdXh6MFRuVkdHOEgrU21oblQ2a1VXeWFqRXphYWRucXVlRFFYbHRONUEvRFNUd29CSkNwY2JtTDNhekJ1L3h3Vnd2RFlRPT0iLCJpdlBhcmFtZXRlclNwZWMiOiJzK3IyNUp0MVV5ZkZyQUVCIiwibWF0ZXJpYWxTZXRTZXJpYWwiOjF9\u0026v=1"
           },
           "sensitive_attributes": [],
           "private": "bnVsbA==",
@@ -1721,14 +1721,6 @@
     {
       "module": "module.master_pipeline",
       "mode": "managed",
-      "type": "github_repository_webhook",
-      "name": "github_webhook",
-      "provider": "provider[\"registry.terraform.io/hashicorp/github\"]",
-      "instances": []
-    },
-    {
-      "module": "module.master_pipeline",
-      "mode": "managed",
       "type": "random_string",
       "name": "github_secret",
       "provider": "provider[\"registry.terraform.io/hashicorp/random\"]",
@@ -1736,7 +1728,7 @@
         {
           "schema_version": 1,
           "attributes": {
-            "id": "7BloRkjvyCWgRPr6C9Sn1jtMi7uelMi4x5QeUvLQDcZrrHoM12NVtuuwJa3nHUnFpYMXHrtxCi8qZ2TVI2mjYgpbypRV4gqyjnv",
+            "id": "sohJoG0DwjKo7HYd4si8fVmpGK3l3SGxjnoGoNqu2lNFlrZiqYAi28nM1CoHKKrbHTrAUmgVzWgJZfzspBNtdmvgmprBovCiWCe",
             "keepers": null,
             "length": 99,
             "lower": true,
@@ -1746,7 +1738,7 @@
             "min_upper": 0,
             "number": true,
             "override_special": null,
-            "result": "7BloRkjvyCWgRPr6C9Sn1jtMi7uelMi4x5QeUvLQDcZrrHoM12NVtuuwJa3nHUnFpYMXHrtxCi8qZ2TVI2mjYgpbypRV4gqyjnv",
+            "result": "sohJoG0DwjKo7HYd4si8fVmpGK3l3SGxjnoGoNqu2lNFlrZiqYAi28nM1CoHKKrbHTrAUmgVzWgJZfzspBNtdmvgmprBovCiWCe",
             "special": false,
             "upper": true
           },

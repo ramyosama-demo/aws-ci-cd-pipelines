@@ -14,7 +14,7 @@ variable "repo_owner" {
 variable "repo_org" {
   type        = string
   description = "The name of the owner of the project."
-  default     = "ramyosama-demo"
+  default     = "Ramynassef"
 }
 
 variable "github_base_url" {

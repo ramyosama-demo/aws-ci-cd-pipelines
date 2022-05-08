@@ -33,7 +33,7 @@ resource "aws_codepipeline" "prod" {
       configuration = {
 #        ConnectionArn    = aws_codestarconnections_connection.example.arn
 #        FullRepositoryId = "${var.repo_owner}/${var.repository_name}"
-        Owner                = var.repo_org
+        Owner                = var.repo_owner
         Repo                 = var.repository_name
         Branch               = var.branch
         PollForSourceChanges = false  #Periodically check the location of your source content and run the pipeline if changes are detected
@@ -131,7 +131,7 @@ resource "github_repository" "repo" {
 */
 # Wire the CodePipeline webhook into a GitHub repository.
 resource "github_repository_webhook" "github_webhook" {
-  repository = "${var.repo_org}/${var.repository_name}"
+  repository = "${var.repo_owner}/${var.repository_name}"
 #  repository = var.repository_name
 #  provider =  github
 #  repository = github_repository.repo.name
