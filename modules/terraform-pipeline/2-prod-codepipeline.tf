@@ -33,7 +33,7 @@ resource "aws_codepipeline" "prod" {
       configuration = {
 #        ConnectionArn    = aws_codestarconnections_connection.example.arn
 #        FullRepositoryId = "${var.repo_owner}/${var.repository_name}"
-        Owner                = var.repo_owner
+        Owner                = var.repo_org
         Repo                 = var.repository_name
         Branch               = var.branch
         PollForSourceChanges = false  #Periodically check the location of your source content and run the pipeline if changes are detected

@@ -22,6 +22,6 @@ provider "aws" {
 provider "github" {
   token                = data.aws_ssm_parameter.github_token.value
   organization         = var.repo_org
-  owner                = var.repo_owner
+  owner                = var.repo_org
 #  base_url             = var.github_base_url 
 }
