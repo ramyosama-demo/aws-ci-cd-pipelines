@@ -1,0 +1,34 @@
+resource "aws_cloudwatch_event_rule" "dev" {
+  count       = var.enable_dev == true ? 1 : 0
+  description = "CloudWatch Event Rule For Pipeline Trigger - Managed by Terraform"
+  tags        = var.tags
+
+  event_pattern = jsonencode(
+    {
+      "source" : [
+        "aws.codecommit"
+      ],
+      "detail-type" : [
+        "CodeCommit Repository State Change"
+      ],
+      "resources" : [
+        "arn:aws:codecommit:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:${var.repository_name}"
+      ],
+      "detail" : {
+        "referenceType" : [
+          "branch"
+        ],
+        "referenceName" : [
+          "dev"
+        ]
+      }
+    }
+  )
+}
+
+resource "aws_cloudwatch_event_target" "dev" {
+  count    = var.enable_dev == true ? 1 : 0
+  rule     = aws_cloudwatch_event_rule.dev[0].name
+  arn      = aws_codepipeline.dev[0].arn
+  role_arn = aws_iam_role.cw_events_role.arn
+}
